@@ -80,7 +80,7 @@ export const Dashboard = () => {
             placeholder="search.."
             value={search}
             onChange={(e) => setSearch(e.target.value as string)}
-            className={`block w-full appearance-none rounded-md border border-gray-300 px-3 py-1 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm mr-4`}
+            className={`hidden md:block w-full appearance-none rounded-md border border-gray-300 px-3 py-1 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm mr-4`}
           />
           <Button
             color="secondary"

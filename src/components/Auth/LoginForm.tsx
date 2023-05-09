@@ -55,14 +55,16 @@ export const LoginForm = () => {
                   error.isError ? "border-red-300" : "border-gray-300"
                 } px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm`}
                 onChange={(e) => {
-                  if (e.target.value.length < 7) {
+                  const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+                  if (!regex.test(e.target.value)) {
                     setError({
                       isError: true,
-                      errorMsg: "Password must be at least 7 characters"
+                      errorMsg: "Please enter a valid email address"
                     });
                   } else {
                     setError({ isError: false, errorMsg: "" });
                   }
+
                   setCreds({ ...creds, email: e.target.value });
                 }}
               />
@@ -89,11 +91,10 @@ export const LoginForm = () => {
                   error.isError ? "border-red-300" : "border-gray-300"
                 } pl-3 pr-12 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm`}
                 onChange={(e) => {
-                  const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
-                  if (regex.test(e.target.value)) {
+                  if (e.target.value.length < 7) {
                     setError({
                       isError: true,
-                      errorMsg: "Please enter a valid email address"
+                      errorMsg: "Password must be at least 7 characters"
                     });
                   } else {
                     setError({ isError: false, errorMsg: "" });
