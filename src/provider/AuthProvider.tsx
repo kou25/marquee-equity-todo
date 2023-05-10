@@ -66,7 +66,7 @@ const AuthProvider = ({ children }: { children: JSX.Element }) => {
       } else {
         throw new Error("Wrong email or password.");
       }
-    } catch (error) {
+    } catch (error:any) {
        alert(error?.message);
     }
   };
